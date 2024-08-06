@@ -41,18 +41,39 @@
 
 // 4.2 homework
 
-let number = prompt("Enter a three-digit number:");
+// let number = prompt("Enter a three-digit number:");
 
-if (number.length !== 3 || isNaN(number)) {
-  alert("Please enter a valid three-digit number.");
-} else {
-  let [hundreds, tens, units] = number.split("");
+// if (number.length !== 3 || isNaN(number)) {
+//   alert("Please enter a valid three-digit number.");
+// } else {
+//   let [hundreds, tens, units] = number.split("");
 
-  if (hundreds === tens && tens === units) {
-    alert("All digits are the same.");
-  } else if (hundreds === tens || tens === units || hundreds === units) {
-    alert("Some digits are the same.");
-  } else {
-    alert("All digits are different.");
-  }
+//   if (hundreds === tens && tens === units) {
+//     alert("All digits are the same.");
+//   } else if (hundreds === tens || tens === units || hundreds === units) {
+//     alert("Some digits are the same.");
+//   } else {
+//     alert("All digits are different.");
+//   }
+// }
+
+// 4.3 homework
+
+// 4.4 homework
+
+let numOrSrt = prompt("Enter a number or a string:");
+console.log(typeof numOrSrt);
+
+switch (true) {
+  case numOrSrt === null:
+    console.log("Ви скасували");
+    break;
+  case numOrSrt.trim() === "":
+    console.log("Empty String");
+    break;
+  case isNaN(+numOrStr):
+    console.log(" number is Ba_NaN");
+    break;
+  default:
+    console.log("number is", numOrStr);
 }
