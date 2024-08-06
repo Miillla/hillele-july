@@ -1,4 +1,4 @@
-//  3.1 homework 
+//  3.1 homework
 
 // let firstName = "John";
 // let lastName = "Doe";
@@ -6,7 +6,6 @@
 // let job = "Web Developer";
 
 // console.log(firstName, lastName, age, job);
-
 
 // 3.2 homework
 
@@ -19,43 +18,18 @@
 // console.log(fullName);
 // console.log(typeof firstName, typeof lastName, typeof age);
 
-
-
 // 3.3 homework
 
-
-
-
-// let num = 23567;
-// let numberStr = num.toString();
-// let numArray = numberStr.split("");
-// let result = numArray.join(" ");
-// let number = Number(numArray.join(""));
-// let numberStr2 = numberStr.parseInt(numberStr);
-
-// console.log(num, numberStr, numArray, result, number);
-
-let firstDigit = promt("Enter first digit:");
-console.log(typeof firstDigit);
-ferstDigit = parseInt(firstDigit);
-let result = firstDigit + 100;
-console.log(result);
-
-
-
-
-const currentYear = prompt("Enter current year:");
-const userAge = prompt("Enter your birth year:");
-const yearOfBirth = currentYear - userAge;
-console.log("YOu were born in:" + yearOfBirth);
-
-
-const age = 18
-const isAdult = age >= 18 ? "Adult" : "Not Adult";
-if (age >= 18) {
-    console.log("Adult");
-}else (age < 18) {
-    console.log("Not Adult");
-}
-
-
+let value = 24689;
+let lastDigit = value % 10; // 9
+value -= lastDigit; // 24680
+value /= 10; // 2468
+let fourthDigit = value % 10; // 8
+value -= fourthDigit; // 2460
+value /= 10; // 246
+let thirdDigit = value % 10; // 6
+value -= thirdDigit; // 240
+value /= 10; // 24
+let secondDigit = value % 10; // 4
+value -= secondDigit; // 20
+value /= 10; // 2
