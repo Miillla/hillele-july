@@ -20,16 +20,21 @@
 
 // 3.3 homework
 
-let value = 24689;
-let lastDigit = value % 10; // 9
-value -= lastDigit; // 24680
-value /= 10; // 2468
-let fourthDigit = value % 10; // 8
-value -= fourthDigit; // 2460
-value /= 10; // 246
-let thirdDigit = value % 10; // 6
-value -= thirdDigit; // 240
-value /= 10; // 24
-let secondDigit = value % 10; // 4
-value -= secondDigit; // 20
-value /= 10; // 2
+// let value = 24689;
+// let lastDigit = value % 10; // 9
+// value -= lastDigit; // 24680
+// value /= 10; // 2468
+// let fourthDigit = value % 10; // 8
+// value -= fourthDigit; // 2460
+// value /= 10; // 246
+// let thirdDigit = value % 10; // 6
+// value -= thirdDigit; // 240
+// value /= 10; // 24
+// let secondDigit = value % 10; // 4
+// value -= secondDigit; // 20
+// value /= 10; // 2
+
+// 4.1 homework
+
+let name = prompt("Enter your name:");
+alert(`Hello, ${name}! How are you?`);
