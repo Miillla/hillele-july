@@ -58,22 +58,58 @@
 // }
 
 // 4.3 homework
+let yearBirth = prompt("Введіть свій рік народження:");
+if (yearBirth === null) {
+  alert(`Шкода, що Ви не захотіли ввести свій рік народження`);
+} else {
+  alert(`Вам ${2021 - yearBirth} років`);
+}
+
+let capital = prompt("Ти живеш у столиці?");
+if (capital === null) {
+  alert(`Шкода, що Ви не захотіли ввести своє місто`);
+} else {
+  alert(`Ти живеш у ${capital}`);
+}
+
+let city = prompt("Ти живеш у місті?");
+if (city === null) {
+  alert(`Шкода, що Ви не захотіли ввести своє місто`);
+} else {
+  alert(`Ти живеш у столиці ${city}`);
+}
+
+let favSport = prompt("Введіть улюблений вид спорту?");
+if (favSport === null) {
+  alert(`Шкода, що Ви не захотіли ввести свій улюблений вид спорту`);
+} else {
+  alert(`Твій улюблений вид спорту ${favSport}`);
+}
+
+let favSportMan = prompt(
+  "Введіть улюбленого спортсмена:Александр Усик, Василь Ломаченко, Сергей Бубка"
+);
+if (favSportMan === null) {
+  alert(`Шкода, що Ви не захотіли свого улюбленого спортсмена`);
+} else {
+  alert(`Твій улюблений спортсмен ${favSportMan}`);
+}
 
 // 4.4 homework
 
-let numOrSrt = prompt("Enter a number or a string:");
-console.log(typeof numOrSrt);
+// let numOrSrt = prompt("Enter a number or a string:");
+// console.log(typeof numOrSrt);
 
-switch (true) {
-  case numOrSrt === null:
-    console.log("Ви скасували");
-    break;
-  case numOrSrt.trim() === "":
-    console.log("Empty String");
-    break;
-  case isNaN(+numOrStr):
-    console.log(" number is Ba_NaN");
-    break;
-  default:
-    console.log("number is", numOrStr);
-}
+// switch (true) {
+//   case numOrSrt === null:
+//     console.log("Ви скасували");
+//     break;
+//   case numOrSrt.trim() === "":
+//     console.log("Empty String");
+//     break;
+//   case isNaN(+numOrStr):
+//     console.log(" number is Ba_NaN");
+//     break;
+//   default:
+//     console.log("number is", numOrStr);
+// }

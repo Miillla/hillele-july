@@ -43,15 +43,28 @@ let value = 24689;
 // for (let i = 0; i < numArray.length; i++) {
 //   console.log(numArray[i], numArray[i] % 3);
 // }
-let lastDigit = value % 10; // 9
-value -= lastDigit; // 24680
-value /= 10; // 2468
-let fourthDigit = value % 10; // 8
-value -= fourthDigit; // 2460
-value /= 10; // 246
-let thirdDigit = value % 10; // 6
-value -= thirdDigit; // 240
-value /= 10; // 24
-let secondDigit = value % 10; // 4
-value -= secondDigit; // 20
-value /= 10; // 2
+// let lastDigit = value % 10; // 9
+// value -= lastDigit; // 24680
+// value /= 10; // 2468
+// let fourthDigit = value % 10; // 8
+// value -= fourthDigit; // 2460
+// value /= 10; // 246
+// let thirdDigit = value % 10; // 6
+// value -= thirdDigit; // 240
+// value /= 10; // 24
+// let secondDigit = value % 10; // 4
+// value -= secondDigit; // 20
+// // value /= 10; // 2
+
+// let yearBirth = prompt("Enter your birth year:");
+// alert(`You are ${2021 - yearBirth} years old`);
+// let capital = prompt("Enter your capital:");
+// alert(`You live in capital ${capital}`);
+// let city = prompt("Enter your city:");
+// alert(`You live in capital ${city}`);
+// let favSport = prompt("Enter your favourite sport:");
+// alert(`Your favourite sport is ${favSport}`);
+// let favSportMan = prompt(
+//   "Enter your favourite sportsman:Александр Усик, Василь Ломаченко, Сергей Бубка"
+// );
+// alert(`Cool! Do you want to become ${favSportMan}, too?`);
