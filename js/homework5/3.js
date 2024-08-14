@@ -1,9 +1,9 @@
-let N = +prompt("Enter a number N:");
+// let N = +prompt("Enter a number N:");
 
-for (let i = 1; i <= 100; i++) {
-  let square = i * i;
+// for (let i = 1; i <= 100; i++) {
+//   let square = i * i;
 
-  if (square <= N) {
-    console.log(i);
-  }
-}
+//   if (square <= N) {
+//     console.log(i);
+//   }
+// }
