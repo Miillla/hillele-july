@@ -7,13 +7,16 @@ do {
 
 if (num === 1) {
   isPrime = true;
-  console.log(`${num} є простим числом.`);
 } else {
   for (let i = 1; i < num; i++) {
     if (num % i === 0) {
       isPrime = false;
-      console.log(`${num} не є простим числом.`);
       break;
     }
   }
+}
+if (isPrime) {
+  console.log(`${num} є простим числом.`);
+} else {
+  console.log(`${num} не є простим числом.`);
 }
