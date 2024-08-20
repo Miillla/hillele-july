@@ -1,9 +1,7 @@
 // function toRemoveString(str, lettersToRemove) {
 //   let filteredStr = str
 //     .split("")
-//     // .filter((char) => !lettersToRemove.includes(char))
-//     .splice(0, 3)
-
+//     .filter((char) => !lettersToRemove.includes(char))
 //     .join("");
 //   return filteredStr;
 // }
