@@ -47,12 +47,15 @@ function getSumOfPositive(arr) {
       h.sumPositiveEven += arr[i];
       f.amountOfPositiveEven++;
     }
+    if (arr[i] > j.bigArr) {
+      j.bigArr = arr[i];
+      arr[i] = 0;
+    }
   }
-  let sorted = arr.sort(sortArray);
-  j.bigArr = sorted.pop();
+  // let sorted = arr.sort(sortArray);
+  // j.bigArr = sorted.pop();
 
   return { a, b, c, d, e, f, g, h, multI, j };
 }
 let result = getSumOfPositive(arrNums);
 console.log(result);
-console.log(arrNums);
