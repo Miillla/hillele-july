@@ -13,8 +13,6 @@ function getSumOfPositive(arr) {
   let g = { sumPositiveOdd: 0 };
   let h = { sumPositiveEven: 0 };
   let multI = { multiplyPositive: 1 };
-  let j = { bigArr: 0, index: 0 };
-  let numResult = new Array(arr.length).fill(0);
 
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] > 0) {
@@ -43,18 +41,21 @@ function getSumOfPositive(arr) {
       h.sumPositiveEven += arr[i];
       f.amountOfPositiveEven++;
     }
-    if (arrNums[i] > j.bigArr || j.bigArr === 0) {
-      j.bigArr = arrNums[i];
-      j.index = i;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (i !== c.index) {
+      arr[i] = 0;
+
+      console.log(arr);
     }
   }
-  numResult[j.index] = j.bigArr;
-  return { a, b, c, d, e, f, g, h, multI, j, numResult };
+
+  return { a, b, c, d, e, f, g, h, multI, arr };
 }
 let result = getSumOfPositive(arrNums);
 console.log(result);
-console.log("numResult", result.numResult);
-console.log(`Big nums ${result.j.bigArr} at index ${result.j.index}`);
+
+console.log(`Big nums ${result.c.numMax} at index ${result.c.index}`);
 
 // let nums = [5, 3, 19, 2];
 
