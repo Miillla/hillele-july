@@ -1,8 +1,3 @@
-function sortArray(a, b) {
-  console.log(a, b);
-  return a - b;
-}
-
 let arrNums = [
   16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, -63, 4, -54,
   76, -4, 12, -35, 4, 47,
@@ -19,6 +14,7 @@ function getSumOfPositive(arr) {
   let h = { sumPositiveEven: 0 };
   let multI = { multiplyPositive: 1 };
   let j = { bigArr: 0, index: 0 };
+  let numResult = new Array(arr.length).fill(0);
 
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] > 0) {
@@ -47,15 +43,32 @@ function getSumOfPositive(arr) {
       h.sumPositiveEven += arr[i];
       f.amountOfPositiveEven++;
     }
-    if (arr[i] > j.bigArr) {
-      j.bigArr = arr[i];
-      arr[i] = 0;
+    if (arrNums[i] > j.bigArr || j.bigArr === 0) {
+      j.bigArr = arrNums[i];
+      j.index = i;
     }
   }
-  // let sorted = arr.sort(sortArray);
-  // j.bigArr = sorted.pop();
-
-  return { a, b, c, d, e, f, g, h, multI, j };
+  numResult[j.index] = j.bigArr;
+  return { a, b, c, d, e, f, g, h, multI, j, numResult };
 }
 let result = getSumOfPositive(arrNums);
 console.log(result);
+console.log("numResult", result.numResult);
+console.log(`Big nums ${result.j.bigArr} at index ${result.j.index}`);
+
+// let nums = [5, 3, 19, 2];
+
+// let numResult = new Array(nums.length).fill(0);
+// let j = { bigArr: 0, index: 0, result: [] };
+
+// for (let i = 0; i < nums.length; i++) {
+//   console.log(nums[i]);
+
+//   if (nums[i] > j.bigArr || j.bigArr === 0) {
+//     j.bigArr = nums[i];
+//     j.index = i;
+//   }
+// }
+// numResult[j.index] = j.bigArr;
+// console.log(numResult);
+// console.log(`Big nums ${result.j.bigArr} at index ${result.j.index}`);
