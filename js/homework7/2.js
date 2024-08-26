@@ -4,4 +4,5 @@ function calculates(a) {
   };
 }
 let counter = calculates(5)(2);
+
 console.log(counter);
