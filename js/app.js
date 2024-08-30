@@ -295,3 +295,19 @@
 
 // const result = sumInput();
 // console.log("The sum of numeric element " + result);
+
+// const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+
+// function generateKey() {
+//   let key = "";
+
+//   for (let i = 0; i < characters.length; i++) {
+//     let random = Math.floor(Math.random() * characters.length);
+//     key += characters[random];
+//     console.log(random);
+//   }
+
+//   return key;
+// }
+// const key = generateKey(8);
+// console.log(key); // eg599gb60q926j8i
