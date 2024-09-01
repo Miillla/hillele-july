@@ -1,50 +1,45 @@
-// let company = {
-//   sales: [
-//     { name: "John", salary: 1000 },
-//     { name: "Alice", salary: 600 },
-//   ],
-//   development: {
-//     sites: [
-//       { name: "Peter", salary: 2000 },
-//       { name: "Alex", salary: 1800 },
-//     ],
-//     internals: [{ name: "Jack", salary: 1300 }],
-//   },
-// };
-// function sumFunctionUser(obj) {
-//   let resultSalary = 0;
-//   for (let key in obj) {
-//     if (typeof obj[key] !== "object" && !Array.isArray(obj[key])) {
-//       console.log(Array.isArray(obj[key]), typeof obj[key]);
-//       resultSalary += obj[key];
-//     } else {
-//       if (Array.isArray(obj[key])) {
-//         for (let i = 0; i < obj[key].length; i++) {
-//           resultSalary += sumFunctionUser(obj[key][i]);
-//         }
-//       }
-//     }
-//   }
-//   return resultSalary;
-// }
-// let result = sumFunctionUser(company);
-// // function sumFunctionUser(obj) {
-// //   let result = {};
-// //   for (let key of Object.values(obj)) {
-// //     console.log(key, obj[key], Array.isArray(obj[key]));
-// //     if (typeof obj[key] !== "object" && !Array.isArray(obj[key])) {
-// //       // result[key] = obj[key];
-// //       result[key] = obj[key];
-// //     } else {
-// //       if (Array.isArray(obj[key])) {
-// //         result[key] = [];
-// //         for (let i = 0; i < obj[key].length; i++) {
-// //           result[key].push(sumFunctionUser(obj[key][i]));
-// //         }
-// //       }
-// //     }
-// //   }
-// //   return result;
-// // }
-// // console.log(sumFunctionUser(company));
 "use strict";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var company = {
+  sales: [{
+    name: "John",
+    salary: 1000
+  }, {
+    name: "Alice",
+    salary: 600
+  }],
+  development: {
+    sites: [{
+      name: "Peter",
+      salary: 2000
+    }, {
+      name: "Alex",
+      salary: 1800
+    }],
+    internals: [{
+      name: "Jack",
+      salary: 1300
+    }]
+  }
+};
+
+function sumFunctionUser(obj) {
+  var resultSalary = 0;
+
+  for (var key in obj) {
+    if (Array.isArray(obj[key])) {
+      for (var i = 0; i < obj[key].length; i++) {
+        resultSalary += obj[key][i].salary;
+      }
+    } else if (_typeof(obj[key]) === "object") {
+      resultSalary += sumFunctionUser(obj[key]);
+    }
+  }
+
+  return resultSalary;
+}
+
+var result = sumFunctionUser(company);
+console.log(result);
