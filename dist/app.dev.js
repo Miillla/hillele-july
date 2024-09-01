@@ -61,4 +61,17 @@ function deepClone(obj) {
 
 var company2 = deepClone(company);
 console.log(company2);
-console.log(company2.employees[0].employees[1] === company.employees[0].employees[1]);
+console.log(company2.employees[0].employees[1] === company.employees[0].employees[1]); // const arr = [11, 98, 4, 33, 58];
+// arr.forEach(function (value) {
+//   console.log(value);
+// });
+// // --------
+// const updatedArr = arr.map(function (value) {
+//   return value + 1;
+// });
+// console.log(updatedArr);
+// // --------
+// const filteredArr = arr.filter(function (value) {
+//   return value % 2 === 0;
+// });
+// console.log(filteredArr);
