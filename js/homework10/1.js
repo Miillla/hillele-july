@@ -1,11 +1,11 @@
-// const data = {
-//   name: "Emily",
-//   age: 30,
-//   city: "Paris",
-// };
-// function showData() {
-//   console.log(this);
-//   console.log(`Name: ${this.name}, Age: ${this.age}, City: ${this.city}`);
-// }
-
-// showData.call(data);
+const data = {
+  name: "Emily",
+  age: 30,
+  city: "Paris",
+  showData: function () {
+    console.log(
+      `${this.name} is ${this.age} years old and lives in ${this.city}`
+    );
+  },
+};
+data.showData();
