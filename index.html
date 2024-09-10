@@ -5,16 +5,27 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="parents">
-      <button id="btn1">Click me 1</button>
-      <button id="btn2">Click me 2</button>
-      <button id="btn3">Click me 3</button>
-    </div>
+    <ul id="parents">
+      <li>
+        Завдання 1 <input type="button" value="Remove" data-action="remove" />
+      </li>
+      <li>
+        Завдання 2 <input type="button" value="Remove" data-action="remove" />
+      </li>
+      <li>
+        Завдання 3 <input type="button" value="Remove" data-action="remove" />
+      </li>
+    </ul>
 
-    {#
-    <script src="js/testing/1.js"></script>
-    #}
-    <script src="js/homework12/2.js"></script>
+    <input
+      type="text"
+      id="input"
+      data-action="remove"
+      placeholder=" Введіть новиe завдань"
+    />
+    <button id="add">Додати</button>
+
+    <script src="js/homework12/3.js"></script>
 
     <script src="js/app.js"></script>
   </body>
