@@ -12,10 +12,10 @@ parents.addEventListener("click", function (event) {
 addBtn.addEventListener("click", function (event) {
   var newElement = document.createElement("li");
   newElement.textContent = taskInput.value;
+  taskInput.value = "";
   var removeBtn = document.createElement("button");
   removeBtn.textContent = "Remove";
   removeBtn.setAttribute("data-action", "remove");
   newElement.appendChild(removeBtn);
   parents.appendChild(newElement);
-  taskInput.value = "";
 });

@@ -14,6 +14,7 @@ parents.addEventListener("click", (event) => {
 addBtn.addEventListener("click", (event) => {
   const newElement = document.createElement("li");
   newElement.textContent = taskInput.value;
+  taskInput.value = "";
 
   const removeBtn = document.createElement("button");
   removeBtn.textContent = "Remove";
@@ -21,6 +22,4 @@ addBtn.addEventListener("click", (event) => {
 
   newElement.appendChild(removeBtn);
   parents.appendChild(newElement);
-
-  taskInput.value = "";
 });
