@@ -36,27 +36,46 @@
   cursor: pointer;
 } */
 
-/* #parents {
-  display: flex;
+#signup {
+  display: block;
   gap: 20px;
-  border: 3px solid black;
+  background-color: #f5f5fa;
+  border-radius: 5px;
   padding: 20px;
   width: fit-content;
   margin-top: 30px;
-} */
+}
 
-#btn1 {
-  background-color: #4caf50;
+h1 {
+  color: red;
+  font-weight: 200px;
+  font-size: bold;
+}
+
+h2 {
+  color: darkgray;
+  font-weight: 200px;
+  font-size: bold;
+}
+
+#flex {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#btn {
+  background-color: blue;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 15px;
   text-align: center;
   font-size: 20px;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 10px;
 }
-#btn2 {
+/* #btn2 {
   background-color: blue;
   border: none;
   color: white;
@@ -77,4 +96,4 @@
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 10px;
-}
+} */
