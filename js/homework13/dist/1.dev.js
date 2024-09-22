@@ -109,38 +109,38 @@ function validateForm() {
   var form = document.forms[0].elements;
   var isFormValid = true;
 
-  for (var element in formObj) {
-    var currentValue = form[element].value;
+  for (var _element in formObj) {
+    var currentValue = form[_element].value;
 
-    if (!currentValue || !formObj[element].regEx.test(currentValue)) {
-      var errorElement = document.createElement("span");
-      errorElement.classList.add("error");
-      errorElement.textContent = formObj[element].errorMessage;
+    if (!currentValue || !formObj[_element].regEx.test(currentValue)) {
+      var _errorElement = document.createElement("span");
 
-      if (!formObj[element].isErrorShown) {
-        var parent = document.querySelector(formObj[element].parentSelector);
-        parent.appendChild(errorElement);
-        formObj[element].isErrorShown = true;
+      _errorElement.classList.add("error");
+
+      _errorElement.textContent = formObj[_element].errorMessage;
+
+      if (!formObj[_element].isErrorShown) {
+        var parent = document.querySelector(formObj[_element].parentSelector);
+        parent.appendChild(_errorElement);
+        formObj[_element].isErrorShown = true;
       }
 
       isFormValid = false;
     } else {
-      var _errorElement = document.querySelector("".concat(formObj[element].parentSelector, " span.error"));
+      var _errorElement2 = document.querySelector("".concat(formObj[_element].parentSelector, " span.error"));
 
-      if (_errorElement) {
-        _errorElement.remove();
+      if (_errorElement2) {
+        _errorElement2.remove();
 
-        formObj[element].isErrorShown = false;
+        formObj[_element].isErrorShown = false;
       }
     }
   }
 
   if (isFormValid) {
-    console.log("Form Data:");
-
-    for (var _element in formObj) {
-      console.log("".concat(formObj[_element].label, ": ").concat(form[_element].value));
-    }
+    console.log("".concat(formObj[element].label, ": ").concat(form[element].value));
+  } else {
+    errorElement.textContent = formObj[element].errorMessage;
   }
 }
 

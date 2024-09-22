@@ -138,10 +138,9 @@ function validateForm() {
   }
 
   if (isFormValid) {
-    console.log("Form Data:");
-    for (let element in formObj) {
-      console.log(`${formObj[element].label}: ${form[element].value}`);
-    }
+    console.log(`${formObj[element].label}: ${form[element].value}`);
+  } else {
+    errorElement.textContent = formObj[element].errorMessage;
   }
 }
 
