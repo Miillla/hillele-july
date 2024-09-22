@@ -1,13 +1,13 @@
-const modal = document.getElementById("modal");
-const openModalBtns = document.getElementById("openModalBtn");
-const closeModalBtns = document.getElementById("closeModalBtn");
+// const modal = document.getElementById("modal");
+// const openModalBtns = document.getElementById("openModalBtn");
+// const closeModalBtns = document.getElementById("closeModalBtn");
 
-openModalBtns.addEventListener("click", () => {
-  modal.classList.remove("hidden");
-});
+// openModalBtns.addEventListener("click", () => {
+//   modal.classList.remove("hidden");
+// });
 
-closeModalBtns.addEventListener("click", () => {
-  modal.classList.add("hidden");
-});
+// closeModalBtns.addEventListener("click", () => {
+//   modal.classList.add("hidden");
+// });
 
-console.log(openModalBtns, closeModalBtns, modal);
+// console.log(openModalBtns, closeModalBtns, modal);

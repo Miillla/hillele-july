@@ -1,94 +1,148 @@
-const btn = document.getElementById("btn");
-const form = document.querySelector("#form");
-const inputFields = form.getElementsByClassName("form-control");
-const phone = document.getElementById("phone");
+"use strict";
 
-for (const item of inputFields) {
-  item.addEventListener("blur", (event) => {
-    validateForm(event);
-  });
+const formObj = {
+  name: {
+    parentSelector: ".form-username",
+    regEx: /^[A-Za-z ]{3,20}$/,
+    errorMessage: "Username is mandatory to fill correctly",
+    isErrorShown: false,
+    tag: "input",
+    placeholder: "Enter your name",
+    label: "name",
+  },
+  message: {
+    parentSelector: ".form-message",
+    regEx: /^[\s\S]{5,}$/,
+    errorMessage: "Message must be at least 5 characters long",
+    tag: "textarea",
+    placeholder: "Enter your message",
+    label: "message",
+  },
+  phone: {
+    parentSelector: ".form-phone",
+    regEx: /^\+380\d{9}$/,
+    errorMessage: "Phone is mandatory to fill correctly",
+    isErrorShown: false,
+    tag: "input",
+    placeholder: "Enter phone number",
+    label: "Phone",
+  },
+  email: {
+    parentSelector: ".form-email",
+    regEx: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/,
+    errorMessage: "Email is mandatory to fill correctly",
+    isErrorShown: false,
+    tag: "input",
+    placeholder: "Email is required",
+    label: "email",
+  },
+};
+
+function createElement(tagname, attributes, content, parentElement, handlers) {
+  const element = document.createElement(tagname);
+
+  for (let key in attributes) {
+    const attribute = key === "classname" ? "class" : key;
+    element.setAttribute(attribute, attributes[key]);
+  }
+
+  element.textContent = content;
+
+  for (let eventType in handlers) {
+    element.addEventListener(eventType, handlers[eventType]);
+  }
+
+  parentElement.appendChild(element);
+
+  return element;
 }
-const setError = (element, message) => {
-  const errorSection = element.parentElement.querySelector(".error");
-  errorSection.innerText = message;
-  element.classList.toggle("invalid", false);
-  element.classList.toggle("valid", true);
-};
 
-const setValid = (element) => {
-  const errorSection = element.parentElement.querySelector(".error");
-  errorSection.innerText = "";
-  element.classList.toggle("invalid", false);
-  element.classList.toggle("valid", true);
-};
+function showForm() {
+  const parent = document.querySelector("main");
+  const formElement = document.createElement("form");
 
-const validateMessage = (message) => {
-  message.value.length < 5
-    ? setError(message, "Message must be at least 5 characters long")
-    : setValid(message);
-};
+  const titleElement = document.createElement("h1");
+  titleElement.textContent = "We would like to help you";
+  formElement.appendChild(titleElement);
 
-const validateEmail = (email) => {
-  const regex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
+  for (let elementname in formObj) {
+    const container = createElement(
+      "p",
+      { classname: formObj[elementname].parentSelector.substring(1) },
+      formObj[elementname].label,
+      formElement
+    );
 
-  if (email.value === "") {
-    setError(email, "Email is required");
-  } else if (!email.value.match(regex)) {
-    setError(email, "Email is incorrect");
-  } else {
-    setValid(email);
-  }
-};
+    const elementAttributes = { name: elementname };
 
-const validatePhone = (phone) => {
-  const regex = /^\+380\(\d{2}\)\d{3}-\d{2}-\d{2}$/;
+    if (
+      formObj[elementname].tag === "input" ||
+      formObj[elementname].tag === "textarea"
+    ) {
+      elementAttributes.placeholder = formObj[elementname].placeholder;
+    }
 
-  if (length === 17 && !phone.value.match(phone.value)) {
-    setError(phone, "Phone number must follow the format +380(XX)XXX-XX-XX");
-  } else {
-    setValid(phone);
-  }
-};
-phone.addEventListener("keydown", (event) => {
-  const length = event.target.value.length;
+    const element = createElement(
+      formObj[elementname].tag,
+      elementAttributes,
+      null,
+      container
+    );
 
-  if (length === 7) {
-    event.target.value += ") ";
-  }
-});
-
-const validateName = (name) => {
-  name.value === "" ? setError(name, "Name is required") : setValid(name);
-};
-
-const validateForm = (event) => {
-  switch (event.target.id) {
-    case "name":
-      validateName(event.target);
-      break;
-    case "message":
-      validateMessage(event.target);
-      break;
-    case "phone":
-      validatePhone(event.target);
-      break;
-    case "email":
-      validateEmail(event.target);
-      break;
-    default:
-      alert("Validation error!");
-  }
-};
-
-btn.addEventListener("click", (event) => {
-  const name = document.getElementById("name").value;
-  const message = document.getElementById("message").value;
-  const phone = document.getElementById("phone").value;
-  const email = document.getElementById("email").value;
-
-  if (!name || message.length < 5 || !phone || !email) {
-    return;
+    if (formObj[elementname].tag === "select") {
+      formObj[elementname].options.forEach((option) => {
+        createElement("option", { value: option.value }, option.text, element);
+      });
+    }
+    if (elementname === "message") {
+      const subTitleElement = document.createElement("h2");
+      subTitleElement.textContent = "How to answer you?";
+      formElement.appendChild(subTitleElement);
+    }
   }
 
-  console.log(name, message, phone, email);
-});
+  createElement("input", { type: "button", value: "Send" }, null, formElement, {
+    click: validateForm,
+  });
+
+  parent.appendChild(formElement);
+}
+
+function validateForm() {
+  const form = document.forms[0].elements;
+  let isFormValid = true;
+
+  for (let element in formObj) {
+    const currentValue = form[element].value;
+
+    if (!currentValue || !formObj[element].regEx.test(currentValue)) {
+      const errorElement = document.createElement("span");
+      errorElement.classList.add("error");
+      errorElement.textContent = formObj[element].errorMessage;
+
+      if (!formObj[element].isErrorShown) {
+        const parent = document.querySelector(formObj[element].parentSelector);
+        parent.appendChild(errorElement);
+        formObj[element].isErrorShown = true;
+      }
+      isFormValid = false;
+    } else {
+      const errorElement = document.querySelector(
+        `${formObj[element].parentSelector} span.error`
+      );
+      if (errorElement) {
+        errorElement.remove();
+        formObj[element].isErrorShown = false;
+      }
+    }
+  }
+
+  if (isFormValid) {
+    console.log("Form Data:");
+    for (let element in formObj) {
+      console.log(`${formObj[element].label}: ${form[element].value}`);
+    }
+  }
+}
+
+showForm();
