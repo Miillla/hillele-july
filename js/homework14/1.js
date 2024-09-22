@@ -1,44 +1,48 @@
-// const leftArrow = document.querySelector(".left");
-// const rightArrow = document.querySelector(".right");
-// const cardWrapper = document.querySelector(".card-wrapper");
-// const indicators = document.querySelectorAll(".controls ul li");
+const leftArrow = document.querySelector(".left");
+const rightArrow = document.querySelector(".right");
+const track = document.querySelector(".slide - container");
+const slides = Array.from(track.children);
+const cardWrapper = document.querySelector(".card-wrapper");
+const dotsNav = document.querySelectorAll(".carousel__nav");
+const dots = Array.from(dotsNav.children);
 
-// let index = 0;
-// const cards = document.querySelectorAll(".card");
-// const totalCards = cards.length;
+const slideWidth = slides[0].getBoundingClientsRect().width;
 
-// // Встановлюємо однакову ширину для всіх карток
-// const cardWidth = cards[0].offsetWidth;
+const setSlidePosition = (slide, index) => {
+  slide.style.left = slideWidth * index + "px";
+};
 
-// function updateIndicators() {
-//   indicators.forEach((indicator, i) => {
-//     indicator.classList.toggle("selected", i === index);
-//   });
-// }
+slides.forEach(setSlidePosition);
 
-// function moveCards() {
-//   cardWrapper.style.transform = `translateX(-${index * cardWidth}px)`;
-//   updateIndicators();
-// }
+const moveToSlide = (track, currentSlide, targetSlide) => {
+  track.style.transform = "translateX('+ targetSlide.style.left +')";
+  currentSlide.classList.remove("current-slide");
+  targetSlide.classList.add("current-slide");
+};
 
-// leftArrow.addEventListener("click", function () {
-//   if (index > 0) {
-//     index--;
-//     moveCards();
-//   }
-// });
+rightArrow.addEventListener("click", (e) => {
+  const currentSlide = track.querySelector(". current-slide");
+  const prevSlide = currentSlide.previousElementSibling;
 
-// rightArrow.addEventListener("click", function () {
-//   if (index < totalCards - 1) {
-//     index++;
-//     moveCards();
-//   }
-// });
+  moveToSlide(track, currentSlide, prevSlide);
+});
 
-// // Клік по індикаторах
-// indicators.forEach(function (indicator, i) {
-//   indicator.addEventListener("click", function () {
-//     index = i;
-//     moveCards();
-//   });
-// });
+leftArrow.addEventListener("click", (e) => {
+  const currentSlide = track.querySelector(". current-slide");
+  const nextSlide = currentSlide.nextElementSibling;
+  moveToSlide(track, currentSlide, nextSlide);
+});
+dotsNav.addEventListener("click", (e) => {
+  const targetDot = e.taget.closest("button");
+  if (!targetDot) return;
+
+  const currentSlide = track.querySelector(".current-slide");
+  const currentDot = dotsNav.querySelector(".current-slide");
+  const targetIndex = dots.findIndex((dot) => dot === targetDot);
+  const targetSlide = slides[targetIndex];
+
+  moveToSlide(track, currentSlide, targetSlide);
+
+  currentDot.classList.remove("current-slide");
+  targetDot.classList.add("current-slide");
+});
