@@ -1,83 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>My First Web Page</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      href="https:fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <div class="slide-container">
-      <div class="card-wrapper">
-        <div class="card current-slide">
-          <div class="card-image">
-            <img src="images/1.jpg" alt="" class="card-img" />
-          </div>
-          <div class="card-content">
-            <span class="sub-title">КОМАНДА</span>
-            <h1 class="title">
-              Ми звикли брати на себе відповідальність та завжди гарантуємо,
-              честну власну допомогу навіть у ситуаціях, коли більшість безсилі.
-            </h1>
-            <div class="author">
-              <p class="name">Олександр Олександровський</p>
-              <span class="sub-name">Керуючий партнер</span>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image">
-            <img src="images/2.jpg" alt="" class="card-img" />
-          </div>
-          <div class="card-content">
-            <span class="sub-title">КОМАНДА</span>
-            <h1 class="title">
-              Ми звикли брати на себе відповідальність та завжди гарантуємо,
-              честну власну допомогу навіть у ситуаціях, коли більшість безсилі.
-            </h1>
-            <div class="author">
-              <p class="name">Олександр Олександровський</p>
-              <span class="sub-name">Керуючий партнер</span>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-image">
-            <img src="images/3.jpg" alt="" class="card-img" />
-          </div>
-          <div class="card-content">
-            <span class="sub-title">КОМАНДА</span>
-            <h1 class="title">
-              Ми звикли брати на себе відповідальність та завжди гарантуємо,
-              честну власну допомогу навіть у ситуаціях, коли більшість безсилі.
-            </h1>
-            <div class="author">
-              <p class="name">Олександр Олександровський</p>
-              <span class="sub-name">Керуючий партнер</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="controls">
-        <span class="card-button left material-symbols-outlined"
-          >chevron_left</span
-        >
-        <ul class="carousel__nav">
-          <li class="carousel__indicator current-slide"></li>
-          <li class="carousel__indicator"></li>
-          <li class="carousel__indicator"></li>
-        </ul>
-        <span class="card-button right material-symbols-outlined"
-          >chevron_right</span
-        >
-      </div>
+    <div class="container">
+      <h1>ToDoList</h1>
+      <form class="form js--form">
+        <input
+          type="text"
+          name="value"
+          required
+          class="form__input js--form__input"
+        />
+        <button class="form__btn">Додати</button>
+      </form>
+      <ul class="js--todos-wrapper">
+        <li class="todo-item">
+          <input type="checkbox" />
+          <span class="todo-item__description">Text</span>
+          <button class="todo-item__delete">Видалити</button>
+        </li>
+        <li class="todo-item todo-item--checked">
+          <input type="checkbox" />
+          <span class="todo-item__description">Text</span>
+          <button class="todo-item__delete">Видалити</button>
+        </li>
+      </ul>
     </div>
-
-    <script src="js/homework14/1.js"></script>
-
-    <script src="js/app.js"></script>
+    <script src="js/homework15/1.js"></script>
   </body>
 </html>
